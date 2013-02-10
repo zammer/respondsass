@@ -1,0 +1,44 @@
+@import "rem-sizing";
+
+@mixin horizontal-nav($num-list-items){
+  $list-item-pc: percentage($num-list-items/($num-list-items*$num-list-items)); 
+  text-align: right;
+  overflow: auto;
+  width: 100%;
+  padding:0;
+  list-style:none;
+  li {
+    margin: 0;
+    text-align: center;
+    overflow: auto;
+    float: left;
+    width: $list-item-pc;
+    padding-left:1%;
+    @include box-sizing(border-box);
+    a {
+      text-decoration: none;
+      display: block;
+    }
+    &:first-child {
+      padding-left:0;
+    }
+  }
+}
+
+@mixin vertical-nav(){
+  overflow: auto;
+  padding:0;
+  list-style:none;
+  li {
+    margin: 0;
+    overflow: auto;
+    @include box-sizing(border-box);
+    a {
+      text-decoration: none;
+      display: block;
+      @include rem-sizing(padding-bottom,.4);
+      @include rem-sizing(padding-left,.4);
+      @include rem-sizing(padding-top,.4);
+    }
+  }
+}

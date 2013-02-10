@@ -1,0 +1,31 @@
+@import "compass/css3";
+
+$default-radius: 2px !default;
+$default-bg-color: #ccc !default;
+$default-gradient: false !default;
+$default-font-size: 1 !default;
+$default-font-color: #333 !default;
+
+
+@mixin button ($radius: $default-radius, $bg-color: $default-bg-color, $font-color: $default-font-color, $font-size: $default-font-size, $gradient: $default-gradient){
+  @if $gradient == true {
+    @include background-image(linear-gradient(lighten($bg-color, 5%),darken($bg-color, 5%)));
+  } @else {
+     background: $bg-color;
+  }    
+    display: inline-block;
+    *display:block;
+    @include rem-sizing(padding-top, .55);
+    @include rem-sizing(padding-bottom, .55);
+    @include rem-sizing(padding-right, 1);
+    @include rem-sizing(padding-left, 1);
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    @include rem-sizing(font-size, 0.9);
+    color: $font-color;
+     @include border-radius($radius);
+     // this determines Mozilla to show the padding
+    border: solid 1px darken($bg-color, 10%);
+}

@@ -1,0 +1,56 @@
+
+$f: HelveticaNeue, Helvetica, Calibri, sans-serif !default;
+$l-h: 1.5 !default;
+$f-s: 16 !default;
+
+
+@mixin baseline($font:$f, $base-line-font: $f-s, $base-line-height: $l-h){
+
+	$b-f-s: $base-line-font/16;
+
+	body {
+		@include rem-sizing(font-size, $b-f-s);
+	}
+
+	h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote, a {
+	    font-family: $font; 
+	}
+
+	h1 {
+		@include rem-sizing(font-size, $b-f-s*1.75);
+		line-height: $base-line-height;
+		@include rem-sizing(margin-bottom, $base-line-height/($b-f-s*1.75));
+	}
+
+	h2 {
+		@include rem-sizing(font-size, $b-f-s*1.45);
+		line-height: $base-line-height;
+		@include rem-sizing(margin-bottom, $base-line-height/($b-f-s*1.45));
+	}
+
+	h3 {
+		@include rem-sizing(font-size, $b-f-s*1.285);
+		line-height: $base-line-height;
+		@include rem-sizing(margin-bottom, $base-line-height/($b-f-s*1.285));
+	}
+
+	h4 {
+		@include rem-sizing(font-size, $b-f-s*1.142);
+		line-height: $base-line-height;
+		@include rem-sizing(margin-bottom, $base-line-height/($b-f-s*1.142));
+	}
+
+	p, ul, blockquote, pre, td, th, label {
+		@include rem-sizing(font-size, $b-f-s);
+	    line-height: $base-line-height;
+	    @include rem-sizing(margin-bottom, $base-line-height);
+	}
+
+	table {
+		border-collapse: collapse;
+		@include rem-sizing(margin-bottom, $base-line-height);
+	}
+
+}
+
+

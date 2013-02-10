@@ -1,0 +1,41 @@
+@import "col-generator";
+@import "respond-to";
+@import "rem-sizing";
+
+.container{
+  margin: 0 auto;
+  max-width:1200px;
+  clear: both;
+}
+
+.row {
+  overflow: hidden;
+  clear:both;
+  @include rem-sizing(margin-bottom,.8);
+  padding: 0 2% 0 2%;
+}
+
+$class: span !default;
+$cols: 16 !default;
+$gutter: 1.25% !default;
+
+@mixin create-grid ($class-name:$class, $columns:$cols, $gutter:$gutter) {
+  
+ %grid-rules-#{$class-name} {
+  float:left;
+  @include box-sizing(border-box);
+  @include col-generator($num-columns:$columns, $total-cols:$columns);
+}
+
+
+@for $i from 1 through $columns{
+  .#{$class-name}-#{$i}{
+   @extend %grid-rules-#{$class-name};
+   @include respond-to(tablets-and-above) {
+    @include col-generator($num-columns:$i, $total-cols:$columns);
+    padding-right:0;
+    padding-left:$gutter;
+  }
+}
+}
+}

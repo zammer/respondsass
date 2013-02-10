@@ -1,0 +1,11 @@
+// Set all variables
+
+$totalColumns: 16 !default;
+
+// Grid generation mixin
+
+@mixin col-generator($num-columns: $col-number, $total-cols: $total-columns) {
+  $column-width: 100% / $total-cols; // Finding column width by dividing space left by number of columns
+  $width: ($num-columns * $column-width);
+  width: $width;
+}
