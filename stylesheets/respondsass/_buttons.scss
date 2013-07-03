@@ -14,7 +14,8 @@ $default-font-color: #333 !default;
      background: $bg-color;
   }    
     display: inline-block;
-    *display:block;
+    *display:inline;
+    *zoom:1;
     @include rem-sizing(padding-top, .55);
     @include rem-sizing(padding-bottom, .55);
     @include rem-sizing(padding-right, 1);

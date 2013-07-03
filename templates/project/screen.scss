@@ -1,1 +1,38 @@
+//import compass css3 mixins for use in your project.
+@import "compass/css3";
+//import compass reset for use in your project.
+@import "compass/reset";
+
+//DO NOT DELETE
+//set boxing sizing to border-box for all browsers.
+*{
+  @include box-sizing(border-box);
+  *behavior: url(scripts/boxsizing.htc);
+}
+
+//Imports the _base.scss file into the main css file.
 @import "base";
+
+
+// ***** JUST FOR EXAMPLES DELETE AS NECESSARY ******
+body {
+	font-family: $fontFamily;
+	@include rem-sizing(font-size, 0.8);
+	line-height:1.5;
+}
+
+@include create-grid(thirds, 3); // The thirds argument is your own column name and will create class name of thirds suffixed with a number, number of columns
+
+@include create-grid(); // This is the default and will create a 16 column grid with class names of span suffixed with a number
+
+@include create-grid(fifths, 5); // 5 columns with class name of fifths
+
+@include create-grid(cols, 12); // 12 columns with class name of cols
+
+.span-1, .thirds-1, .thirds-2, .fifths-1, .fifths-2, .fifths-3, .fifths-4, .cols-1, .cols-2, .cols-3, .cols-4, .cols-5, .cols-6 {
+	background-color: #ccc; 
+	border:3px solid #fff;
+	height: 50px;
+}
+
+// ******* END OF EXAMPLE CSS ********
